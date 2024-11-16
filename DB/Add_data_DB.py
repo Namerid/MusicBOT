@@ -5,14 +5,6 @@ from mutagen import File
 def get_list_files(file_path):
     return os.listdir(file_path)
 
-# def seconds_to_minutes(time):
-#     minutes = int(time // 60)
-#     seconds = int(time % 60)
-#     if seconds < 10:
-#         seconds = f'0{seconds}'
-    
-#     return f'{minutes}:{seconds}'
-
 def get_audio_metadata(file_path):
     audio_file = File(file_path, easy=True)
 
@@ -22,7 +14,6 @@ def get_audio_metadata(file_path):
         audio_file.get('artist', ['Неизвестно'])[0],
         audio_file.get('album', ['Неизвестно'])[0],
         str(int(audio_file.info.length))
-        #seconds_to_minutes(audio_file.info.length)
     ]
     return metadata
 
